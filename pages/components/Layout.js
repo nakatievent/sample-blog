@@ -10,7 +10,7 @@ export default function Layout({ children, title = "Default Title"}) {
                 {children}
             </main>
             <footer>
-                @udemy 2021e
+                @udemy 2021
             </footer>
         </div>
     )
