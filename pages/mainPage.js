@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import Layout from './components/Layout'
+import Layout from '../components/Layout'
 import "tailwindcss/tailwind.css";
 import Link from "next/link"
 
