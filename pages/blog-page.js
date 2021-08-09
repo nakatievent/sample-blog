@@ -23,8 +23,6 @@ export default function BlogPage({ filteredPosts }) {
 
 export async function getStaticProps() {
     const filteredPosts = await getAllPostsData()
-    // const filteredPosts = [{id: 1, title: "haruki"}, {id: 2, title: "haruki"}]
-    console.log(filteredPosts)
     return {
         props: { filteredPosts }
     }
