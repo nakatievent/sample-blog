@@ -6,7 +6,7 @@ import { getAllPostsIds, getPostData } from "../../lib/posts"
 export default function Post({ post }) {
     const router = useRouter()
 
-    if (!post) {
+    if (router.isFallback || !post) {
         return (
             <div>Loading</div>
         )
@@ -47,6 +47,7 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             post
-        }
+        },
+        revalidate: 3
     }
 }
