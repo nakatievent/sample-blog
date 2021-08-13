@@ -37,7 +37,7 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: true //pathsに定義されていないアクセスがあった場合、404ページを返却する
+        fallback: true
     }
 }
 
