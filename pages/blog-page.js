@@ -1,13 +1,13 @@
 import Layout from "../components/Layout";
 import Link from "next/link"
-import { getAllPostsData } from "../lib/posts"
+import { client } from '../lib/client';
 import Post from "../components/Post";
 
-export default function BlogPage({ filteredPosts }) {
+export default function BlogPage({ posts }) {
     return (
         <Layout title="Blog Page">
             <ul>
-                {filteredPosts && filteredPosts.map((post) => <Post key={post.id} post={post} />)}
+                {posts && posts.map((post) => <Post key={post.id} post={post} />)}
             </ul>
             <Link href="/mainPage">
                 <div>
@@ -21,10 +21,14 @@ export default function BlogPage({ filteredPosts }) {
     )
 }
 
-export async function getStaticProps() {
-    const filteredPosts = await getAllPostsData()
+export const getStaticProps = async () => {
+    const response = await client.get({
+        endpoint: 'posts',
+    })
+
     return {
-        props: { filteredPosts },
-        revalidate: 3
-    }
-}
+        props: {
+            posts: response.contents,
+        },
+    };
+};

@@ -37,13 +37,12 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: true //pathsに定義されていないアクセスがあった場合、404ページを返却する
+        fallback: true
     }
 }
 
 export async function getStaticProps({ params }) {
     const { post: post } = await getPostData(params.id)
-
     return {
         props: {
             post

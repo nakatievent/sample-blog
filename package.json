@@ -11,9 +11,11 @@
   "dependencies": {
     "axios": "^0.21.1",
     "font-awesome": "^4.7.0",
+    "microcms-js-sdk": "^1.2.0",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sass": "^1.37.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.1",
