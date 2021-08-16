@@ -4,11 +4,10 @@ import { client } from '../lib/client';
 import Post from "../components/Post";
 
 export default function BlogPage({ posts }) {
-    console.log(posts)
     return (
         <Layout title="Blog Page">
             <ul>
-                {posts && posts.map((post) => <Post key={post.id} post={post.title} />)}
+                {posts && posts.map((post) => <Post key={post.id} post={post} />)}
             </ul>
             <Link href="/mainPage">
                 <div>
@@ -22,7 +21,7 @@ export default function BlogPage({ posts }) {
     )
 }
 
-export const getStaticProps = async() => {
+export const getStaticProps = async () => {
     const response = await client.get({
         endpoint: 'posts',
     })
