@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Footer from './Footer'
 import Header from './Header'
 
 export default function Layout({ children, title = "Default Title"}) {
@@ -10,10 +11,8 @@ export default function Layout({ children, title = "Default Title"}) {
             <main>
                 <Header />
                 {children}
+                <Footer />
             </main>
-            <footer>
-                @udemy 2021
-            </footer>
         </div>
     )
 }
