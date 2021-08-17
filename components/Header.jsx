@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Header = () => {
-    const naviMenus = ["タイトル", "タイトル2", "タイトル3"]
+    const naviMenus = ["タイトル", "タイトル2", "タイトル3", "タイトル4", "タイトル5"]
     return (
         <header>
             <h1>Sample Blog</h1>
