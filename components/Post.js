@@ -2,12 +2,18 @@ import Link from "next/link"
 
 export default function Post({ post }) {
     return (
-        <div>
-            <span>{post.id}</span>
-            {" : "}
+        <article className="contents-list">
             <Link href={`/posts/${post.id}`}>
-                <span className="hover:bg-gray-600 border-b">{post.title}</span>
+                <h1>{post.title}</h1>
             </Link>
-        </div>
+            <p>作成日：{post.createdAt} 更新日：{post.updatedAt}</p>
+            <Link href={`/posts/${post.id}`}>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: `${post.content}`,
+                    }}
+                />
+            </Link>
+        </article>
     )
 }
