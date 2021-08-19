@@ -40,17 +40,21 @@ header {
     }
 }
 
-.contents-list {
+article.contents-list {
     display: flex;
     flex-direction: column;
     text-align: center;
-    h1 {
+    padding: 5% 10%;
+    h2 {
         font-size: 3rem;
         font-weight: bold;
         border-bottom: 3px solid #ddd;
+        cursor: pointer;
+        padding-bottom: 1rem;
     }
     p {
         font-size: 1.2rem;
+        padding-top: 1rem;
     }
     p.contents-title {
         font-size: 1.5rem;
