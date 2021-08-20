@@ -1,15 +1,32 @@
-import { useRouter } from 'next/router'
-import Layout from '../components/Layout'
-import "tailwindcss/tailwind.css";
-import Link from "next/link"
+import Layout from "../components/Layout";
+import { client } from '../lib/client';
+import Post from "../components/Post";
 
-export default function MainPage() {
-    const router = useRouter()
+export default function BlogPage({ posts }) {
     return (
-        <div>
-            <Link href="/blog-page">
-                <a>Blog</a>
-            </Link>
-        </div>
+        <Layout title="Blog Page">
+            <div className="contents-wrapper">
+                <section>
+                    {posts && posts.map((post) => <Post key={post.id} post={post} />)}
+                </section>
+                <aside>
+                    <div className="sample">
+                        <p>sample</p>
+                    </div>
+                </aside>
+            </div>
+        </Layout>
     )
 }
+
+export const getStaticProps = async () => {
+    const response = await client.get({
+        endpoint: 'posts',
+    })
+
+    return {
+        props: {
+            posts: response.contents,
+        },
+    };
+};
