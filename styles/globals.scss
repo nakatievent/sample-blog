@@ -24,7 +24,6 @@ header {
     }
 }
 
-
 .contents-wrapper {
     display: flex;
     justify-content: space-between;
@@ -57,8 +56,6 @@ header {
     }
 }
 
-
-
 aside {
     width: 28%;
     .my-profile {
@@ -84,7 +81,7 @@ aside {
             background-color: $main-color;
             border-radius: 2rem;
             &::after {
-                content: '';
+                content: "";
                 width: 1rem;
                 height: 1rem;
                 border-top: 3px solid #333333;
@@ -119,14 +116,29 @@ aside {
 
 footer {
     width: 100%;
-    height: 10rem;
+    padding: 3rem 0;
     background-color: $main-color;
-    ul {
+    h3 {
         @include display(center, center);
-        height: 100%;
-        margin: 0 30rem;
-        li {
-            margin: 0 auto;
+        font-size: 5rem;
+        font-weight: bold;
+    }
+    ul {
+        &.footer-menu {
+            @include display(center, center);
+            margin: 0 25rem;
+            li {
+                font-size: 1.5rem;
+                margin: 0 auto;
+            }
+        }
+        &.sns-button {
+            opacity: 0.5;
+            @include display(center, center);
+            width: 100%;
+            li.footer-sns-icon {
+                background-color: palevioletred;
+            }
         }
     }
 }
