@@ -1,0 +1,7 @@
+$main-color: #ddd;
+
+@mixin display($justify-contents, $aline-items) {
+    display: flex;
+    justify-content: $justify-contents;
+    align-items: $aline-items;
+}
