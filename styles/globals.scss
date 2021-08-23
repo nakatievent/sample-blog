@@ -1,29 +1,27 @@
+$main-color: #ddd;
+@mixin display-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 // 主要なブラウザのデフォルト文字サイズが16pxのため、下記の設定にすることでHTMLの文字の大きさが10pxとなる
 html {
     font-size: 62.5%;
 }
 
-.contents-wrapper {
-    display: flex;
-    justify-content: space-between;
-}
-
 // ヘッダー
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include display-space-between;
     width: 100%;
     height: 12rem;
-    background-color: #ddd;
-    padding: 0 5rem;
+    background-color: $main-color;
+    padding: 0 8%;
     h1 {
         font-size: 3rem;
     }
     ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include display-space-between;
         li {
             font-size: 1.5rem;
             margin: 0 2rem;
@@ -32,40 +30,47 @@ header {
 }
 
 
-section {
-    width: 72%;
+.contents-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8%;
+    section {
+        width: 68%;
+        article {
+            &.contents-list {
+                display: flex;
+                flex-direction: column;
+                padding: 5% 0;
+            }
+        }
+        h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            border-bottom: 0.3rem solid $main-color;
+            cursor: pointer;
+            padding-bottom: 1.5rem;
+        }
+        p {
+            font-size: 1.6rem;
+            padding: 1.5rem 0;
+        }
+        a {
+            font-size: 1.6rem;
+            margin-left: auto;
+            color: #0d6efd;
+        }
+    }
 }
 
-article.contents-list {
-    display: flex;
-    flex-direction: column;
-    padding: 5% 5%;
-    h2 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        border-bottom: 1rem solid #ddd;
-        cursor: pointer;
-        padding-bottom: 1.5rem;
-    }
-    p {
-        font-size: 1.6rem;
-        padding: 1.5rem 0;
-    }
-    a {
-        font-size: 1.6rem;
-        margin-left: auto;
-        color: #0d6efd;
-    }
-}
+
 
 aside {
     width: 28%;
-    padding: 0 3rem;
     .my-profile {
         .profile-photo {
-            width: 25rem;
-            height: 25rem;
-            background: #000;
+            width: 20rem;
+            height: 20rem;
+            background: $main-color;
             border-radius: 50%;
             margin: 5rem auto 2rem auto;
         }
@@ -74,29 +79,27 @@ aside {
             margin-bottom: 1rem;
         }
         button {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include display-space-between;
             margin: 2rem auto 0 auto;
             padding: 0.5em 1em;
-            width: 25rem;
+            width: 100%;
             color: #333;
             font-size: 1.8rem;
             font-weight: bold;
-            background-color: #ddd;
+            background-color: $main-color;
             border-radius: 2rem;
-        }
-        button::after {
-            content: '';
-            width: 1rem;
-            height: 1rem;
-            border-top: 3px solid #333333;
-            border-right: 3px solid #333333;
-            transform: rotate(45deg);
-        }
-        button:hover {
-            text-decoration: none;
-            background-color: #bbbbbb;
+            &::after {
+                content: '';
+                width: 1rem;
+                height: 1rem;
+                border-top: 3px solid #333333;
+                border-right: 3px solid #333333;
+                transform: rotate(45deg);
+            }
+            &:hover {
+                text-decoration: none;
+                background-color: #bbbbbb;
+            }
         }
     }
     .category-list {
@@ -104,35 +107,31 @@ aside {
         h2 {
             font-size: 1.5rem;
             font-weight: bold;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
+            text-align: center;
+            border-bottom: 1px solid $main-color;
+            padding: 1.5rem;
         }
         ul {
             width: 100%;
             li {
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid $main-color;
                 font-size: 1.5rem;
-                margin-bottom: 1rem;
-                padding: 0.5em 1em;
-
+                padding: 1em 1em;
             }
         }
     }
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
     width: 100%;
     height: 10rem;
-    background-color: #ddd;
+    background-color: $main-color;
     ul {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
-        margin: 0 25rem;
+        margin: 0 30rem;
         li {
             margin: 0 auto;
         }
