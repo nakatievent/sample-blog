@@ -3,14 +3,14 @@ import Image from 'next/image'
 
 export default function Post({ post }) {
     const image = post.image
-    console.log(image)
+    console.log(post)
     return (
         <article className="contents-list">
             <Link href={`/posts/${post.id}`}>
                 <h2>{post.title}</h2>
             </Link>
             <p>作成日：{post.createdAt} {" "} 更新日：{post.updatedAt}</p>
-            <Image src={image.url} width={image.width} height={image.height} />
+            {image ? <Image src={image.url} width={image.width} height={image.height} /> : ""}
             <div
                 dangerouslySetInnerHTML={{
                     __html: `${post.content}`,
