@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Footer = () => {
     const footerMenus = ["ホーム", "プロフィール", "記事一覧", "仕事依頼について", "制作実績", "お問い合わせ", "このサイトについて"]
     return (
