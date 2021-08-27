@@ -2,9 +2,11 @@ import Layout from "../components/Layout";
 import { client } from '../lib/client';
 import Post from "../components/Post";
 import { useRouter } from 'next/router'
+import Category from "../components/Category";
 
 export default function BlogPage({ posts }) {
     const router = useRouter()
+
     return (
         <Layout title="Blog Page">
             <div className="contents-wrapper">
@@ -19,6 +21,7 @@ export default function BlogPage({ posts }) {
                             プロフィール詳細
                         </button>
                     </div>
+                    <Category />
                     <div className="category-list">
                         <h2>カテゴリー</h2>
                         <nav>
