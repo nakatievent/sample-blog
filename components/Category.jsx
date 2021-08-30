@@ -1,14 +1,23 @@
 import axios from 'axios'
-// import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Category() {
-    // const [category, setCategory] = useState([])
-    // const data = axios.get('https://engineer-blog.microcms.io/api/v1/category', {
-    //     headers: {
-    //         'X-API-KEY': process.env.API_KEY,
-    //     }
-    // })
-    // console.log(data)
+    const [category, setCategory] = useState([])
+    useEffect(() => {
+        axios.get('https://engineer-blog.microcms.io/api/v1/category', {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-API-KEY': 'ac3fd366-41c7-4274-9dc1-a13bf9bcee3f',
+            }
+        }).then(response => {
+            console.log('status:', response.status)
+            console.log('body:', response.data)
+            setCategory(response.data)
+        }).catch(error => {
+            console.log('error:', error)
+        })
+    }, [])
+    console.log(category)
 
     return (
         <div className="category-list">
