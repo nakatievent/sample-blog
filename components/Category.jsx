@@ -7,7 +7,7 @@ export default function Category() {
         axios.get('https://engineer-blog.microcms.io/api/v1/category', {
             headers: {
                 'Content-Type': 'application/json',
-                'X-API-KEY': 'ac3fd366-41c7-4274-9dc1-a13bf9bcee3f',
+                'X-API-KEY': process.env.API_KEY,
             }
         }).then(response => {
             console.log('status:', response.status)
@@ -17,18 +17,15 @@ export default function Category() {
             console.log('error:', error)
         })
     }, [])
-    console.log(category)
 
     return (
         <div className="category-list">
             <h2>カテゴリー</h2>
             <nav>
                 <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>React</li>
-                    <li>Udemy</li>
+                    {category.contents && category.contents.map((sample, index) => (
+                        <li key={index}>{sample.id}</li>
+                    ))}
                 </ul>
             </nav>
         </div>
