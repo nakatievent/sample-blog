@@ -1,0 +1,44 @@
+@import "sample";
+@import "header";
+@import "sideContents";
+@import "footer";
+
+// 主要なブラウザのデフォルト文字サイズが16pxのため、下記の設定にすることでHTMLの文字の大きさが10pxとなる
+html {
+    font-size: 62.5%;
+}
+
+.contents-wrapper {
+    @include display(space-between);
+    padding: 0 8%;
+    section {
+        width: 68%;
+        article {
+            &.contents-list {
+                display: flex;
+                flex-direction: column;
+                padding: 5% 0;
+                img {
+                    width: 75%;
+                    border: 3px solid $main-color;
+                }
+            }
+        }
+        h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            border-bottom: 0.3rem solid $main-color;
+            cursor: pointer;
+            padding-bottom: 1.5rem;
+        }
+        p {
+            font-size: 1.6rem;
+            padding: 1.5rem 0;
+        }
+        a {
+            font-size: 1.6rem;
+            margin-left: auto;
+            color: #0d6efd;
+        }
+    }
+}

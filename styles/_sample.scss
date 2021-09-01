@@ -1,7 +1,15 @@
 $main-color: #ddd;
 
-@mixin display($justify-contents, $aline-items) {
+@mixin display($justify-contents: null, $aline-items: null) {
     display: flex;
-    justify-content: $justify-contents;
-    align-items: $aline-items;
+    @if $justify-contents != null {
+        justify-content: $justify-contents;
+    }
+    @if $aline-items != null {
+        align-items: $aline-items;
+    }
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+    margin: $top, $right, $bottom, $left
 }
