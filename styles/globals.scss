@@ -35,6 +35,9 @@ header {
                 display: flex;
                 flex-direction: column;
                 padding: 5% 0;
+                img {
+                    width: 75%;
+                }
             }
         }
         h2 {
@@ -109,6 +112,9 @@ aside {
                 border-bottom: 1px solid $main-color;
                 font-size: 1.5rem;
                 padding: 1em 1em;
+                &:hover {
+                    background-color: $main-color;
+                }
             }
         }
     }
