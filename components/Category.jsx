@@ -24,7 +24,7 @@ export default function Category() {
             <nav>
                 <ul>
                     {category.contents && category.contents.map((sample, index) => (
-                        <li key={index}>{sample.id}</li>
+                        <li key={index}>{sample.name}</li>
                     ))}
                 </ul>
             </nav>

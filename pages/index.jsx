@@ -22,18 +22,6 @@ export default function BlogPage({ posts }) {
                         </button>
                     </div>
                     <Category />
-                    <div className="new-posts">
-                        <h2>最新の記事</h2>
-                        <nav>
-                            <ul>
-                                <li>aaa</li>
-                                <li>eee</li>
-                                <li>eeeee</li>
-                                <li>rtrre</li>
-                                <li>refgrfegrf</li>
-                            </ul>
-                        </nav>
-                    </div>
                 </aside>
             </div>
         </Layout>
