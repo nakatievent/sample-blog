@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 export default function Post({ post }) {
     const image = post.image
-    console.log(post)
     return (
         <article className="contents-list">
             <Link href={`/posts/${post.id}`}>
