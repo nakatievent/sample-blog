@@ -4,7 +4,7 @@ import Post from "../components/Post";
 import { useRouter } from 'next/router'
 import Category from "../components/Category";
 
-export default function BlogPage({ posts }) {
+export default function BlogPage({ posts, categorys }) {
     const router = useRouter()
 
     return (
@@ -21,7 +21,7 @@ export default function BlogPage({ posts }) {
                             プロフィール詳細
                         </button>
                     </div>
-                    <Category />
+                    {categorys && <Category categorys={categorys} />}
                 </aside>
             </div>
         </Layout>
@@ -32,10 +32,13 @@ export const getStaticProps = async () => {
     const response = await client.get({
         endpoint: 'posts',
     })
-
+    const response2 = await client.get({
+        endpoint: 'category',
+    })
     return {
         props: {
             posts: response.contents,
+            categorys: response2.contents
         },
     };
 };
