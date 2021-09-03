@@ -4,6 +4,7 @@ import Layout from "../../components/Layout"
 import { getAllPostsIds, getPostData } from "../../lib/posts"
 
 export default function Post({ post }) {
+    console.log(post)
     const router = useRouter()
 
     if (router.isFallback || !post) {
@@ -22,9 +23,6 @@ export default function Post({ post }) {
             <p>{post.body}</p>
             <Link href="/">
                 <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
-                    </svg>
                     <span>前のページへ戻る</span>
                 </div>
             </Link>
