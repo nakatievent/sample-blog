@@ -1,7 +1,8 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useContext } from "react"
+import IndexContext from '../context/IndexContext'
 
-export default function Category({ categorys }) {
+export default function Category() {
+    const { categorys } = useContext(IndexContext)
     return (
         <div className="category-list">
             <h2>カテゴリー</h2>
