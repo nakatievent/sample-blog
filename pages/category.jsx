@@ -1,5 +1,4 @@
 import Layout from "../components/Layout";
-import Image from 'next/image'
 
 export default function category() {
     const postByCategorys = [
@@ -14,7 +13,7 @@ export default function category() {
         <Layout title="posts-by-categorys">
             <section>
                 {postByCategorys.map((postByCategory) => (
-                    <article>
+                    <article key={postByCategory.id}>
                         <div className="picture"></div>
                         <div className="posts-by-categorys">
                             <h2>{postByCategory.category_title}</h2>
