@@ -9,7 +9,7 @@ export default function Category() {
             <nav>
                 <ul>
                     {categorys && categorys.map((category, index) => (
-                        <li key={index}>{category.name}</li>
+                        <li key={category.id}>{category.name}</li>
                     ))}
                 </ul>
             </nav>

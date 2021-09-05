@@ -5,11 +5,12 @@ import Layout from '../components/Layout';
 import Aside from '../components/Aside'
 import Post from '../components/Post';
 
-export default function BlogPage({ posts, categorys }) {
+export default function BlogPage({ posts, categorys, sample }) {
+    console.log(sample)
     const router = useRouter()
 
     return (
-        <Layout title="Blog Page">
+        <Layout title="ブログ一覧">
             <div className="contents-wrapper">
                 <section>
                     {posts && posts.map((post) => <Post key={post.id} post={post} />)}
@@ -29,10 +30,14 @@ export const getStaticProps = async () => {
     const response2 = await client.get({
         endpoint: 'category',
     })
+    const sample = await client.get({
+        endpoint: 'category/javascript',
+    })
     return {
         props: {
             posts    : response.contents,
-            categorys: response2.contents
+            categorys: response2.contents,
+            sample   : sample
         },
     };
 };
