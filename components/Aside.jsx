@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Category from "./Category";
+import Category      from "./Category";
 
 export default function Aside() {
     const router = useRouter()

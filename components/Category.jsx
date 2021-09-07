@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import IndexContext from '../context/IndexContext'
+import IndexContext   from '../context/IndexContext'
 
 export default function Category() {
     const { categorys } = useContext(IndexContext)
