@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 import Category      from "./Category";
 
-export default function Aside() {
+export default function Aside({categorys}) {
+    console.log(categorys)
     const router = useRouter()
     return (
         <aside>
@@ -12,7 +13,7 @@ export default function Aside() {
                     プロフィール詳細
                 </button>
             </div>
-            <Category />
+            <Category categorys={categorys} />
         </aside>
     )
 }
