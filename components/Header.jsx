@@ -5,7 +5,7 @@ const Header = () => {
     const naviMenus = ["タイトル", "タイトル2", "タイトル3", "タイトル4", "タイトル5"]
     return (
         <header>
-            <Link href="/category">
+            <Link href="/">
                 <h1>Sample Blog</h1>
             </Link>
             <nav className="menu">
