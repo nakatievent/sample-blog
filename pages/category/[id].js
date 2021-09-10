@@ -1,10 +1,14 @@
-import Link                            from "next/link"
 import { useRouter }                   from "next/router"
 import Layout                          from "../../components/Layout"
 import { getAllCategoryIds, getCategoryPostData } from "../../lib/category"
+import { client } from "../../lib/client"
 
 export default function Post({ post }) {
     console.log(post)
+    const response = client.get({
+        endpoint: 'posts',
+        queries : {filters: 'category[equals]react'},
+    }).then((res) => console.log(res))
     const router = useRouter()
 
     if (router.isFallback || !post) {
@@ -16,10 +20,10 @@ export default function Post({ post }) {
     return (
         <Layout title="カテゴリー毎の投稿">
             <div className="contents-wrapper">
-                {/* <section>
-                    {postsOfCategory && postsOfCategory.map((postByCategory) => <Post key={postByCategory.id} post={postByCategory} />)}
+                <section>
+                    {/* {post && <Post key={post.id} post={post} />} */}
                 </section>
-                <IndexContext.Provider value={{ postsOfCategory }}>
+                {/* <IndexContext.Provider value={{ postsOfCategory }}>
                     <Aside />
                 </IndexContext.Provider> */}
             </div>
@@ -44,15 +48,11 @@ export async function getStaticProps({ params }) {
         revalidate: 3 //ISRを有効にする
     }
 }
-// export const getStaticProps = async () => {
-//     const response = await client.get({
-//         endpoint: 'posts',
-//         queries : {filters: 'category[equals]654776546'},
-//     })
-//     return {
-//         props: {
-//             postsOfCategory: response.contents,
-//         },
-//         revalidate: 3 //ISRを有効にする
-//     };
-// };
+
+export async function sample() {
+    const response = await client.get({
+        endpoint: 'posts',
+        queries : {filters: 'category[equals]react'},
+    })
+    return response
+};
