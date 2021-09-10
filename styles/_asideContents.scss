@@ -50,7 +50,10 @@ aside {
             li {
                 border-bottom: 1px solid $main-color;
                 font-size: 1.5rem;
-                padding: 1em 1em;
+                a {
+                    display: block;
+                    padding: 1em 1em;
+                }
                 &:hover {
                     background-color: $main-color;
                 }
