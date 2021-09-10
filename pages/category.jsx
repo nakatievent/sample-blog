@@ -1,28 +1,35 @@
-import Layout from "../components/Layout";
+import IndexContext from '../context/IndexContext'
+import { useRouter } from 'next/router'
+import { client } from '../lib/client';
+import Layout from '../components/Layout';
+import Aside from '../components/Aside'
+import Post from '../components/Post';
 
-export default function category() {
-    const postByCategorys = [
-        { id: 1, category_title: "サンプル1のタイトルについて", category_article: "サンプル1" },
-        { id: 2, category_title: "サンプル2のタイトルについて", category_article: "サンプル2" },
-        { id: 3, category_title: "サンプル3のタイトルについて", category_article: "サンプル3" },
-        { id: 4, category_title: "サンプル4のタイトルについて", category_article: "サンプル4" },
-        { id: 5, category_title: "サンプル5のタイトルについて", category_article: "サンプル5" },
-    ]
-    console.log(postByCategorys)
+export default function category({ postsOfCategory }) {
+    console.log(postsOfCategory)
+    const router = useRouter()
     return (
-        <Layout title="posts-by-categorys">
-            <section>
-                {postByCategorys.map((postByCategory) => (
-                    <article key={postByCategory.id}>
-                        <div className="picture"></div>
-                        <div className="posts-by-categorys">
-                            <h2>{postByCategory.category_title}</h2>
-                            <p>{postByCategory.category_article}</p>
-                            <p>作成日：2021年8月31日 {" "} 更新日：2021年8月31日</p>
-                        </div>
-                    </article>
-                ))}
-            </section>
+        <Layout title="カテゴリー毎の投稿">
+            <div className="contents-wrapper">
+                <section>
+                    {postsOfCategory && postsOfCategory.map((postByCategory) => <Post key={postByCategory.id} post={postByCategory} />)}
+                </section>
+                <IndexContext.Provider value={{ postsOfCategory }}>
+                    <Aside />
+                </IndexContext.Provider>
+            </div>
         </Layout>
     )
 }
+
+export const getStaticProps = async () => {
+    const response = await client.get({
+        endpoint: 'posts',
+        queries : {filters: 'category[equals]654776546'},
+    })
+    return {
+        props: {
+            postsOfCategory: response.contents,
+        },
+    };
+};
