@@ -1,5 +1,5 @@
 import React from 'react'
-import Link  from 'next/link'
+import Link from 'next/link'
 
 const Header = () => {
     const naviMenus = ["タイトル", "タイトル2", "タイトル3", "タイトル4", "タイトル5"]

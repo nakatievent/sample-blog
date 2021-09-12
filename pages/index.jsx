@@ -1,9 +1,9 @@
-import IndexContext  from '../context/IndexContext'
+import IndexContext from '../context/IndexContext'
 import { useRouter } from 'next/router'
-import { client }    from '../lib/client';
-import Layout        from '../components/Layout';
-import Aside         from '../components/Aside'
-import Post          from '../components/Post';
+import { client } from '../lib/client';
+import Layout from '../components/Layout';
+import Aside from '../components/Aside'
+import Post from '../components/Post';
 
 export default function BlogPage({ posts, categorys }) {
     const router = useRouter()
@@ -22,7 +22,7 @@ export default function BlogPage({ posts, categorys }) {
 }
 
 export const getStaticProps = async () => {
-    const response  = await client.get({
+    const response = await client.get({
         endpoint: 'posts',
     })
     const response2 = await client.get({
@@ -30,7 +30,7 @@ export const getStaticProps = async () => {
     })
     return {
         props: {
-            posts    : response.contents,
+            posts: response.contents,
             categorys: response2.contents,
         },
     };
