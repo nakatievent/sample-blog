@@ -6,6 +6,7 @@ import Aside from '../components/Aside'
 import Post from '../components/Post';
 
 export default function BlogPage({ posts, categorys }) {
+    console.log(categorys)
     const router = useRouter()
     return (
         <Layout title="ブログ一覧">
