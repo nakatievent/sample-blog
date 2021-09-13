@@ -1,20 +1,21 @@
-import Link  from "next/link"
+import Link from "next/link"
 import { useContext } from "react"
-import IndexContext   from '../context/IndexContext'
+import IndexContext from '../context/IndexContext'
 
-export default function Category({categorys}) {
-    const { postsOfCategory } = useContext(IndexContext)
+export default function Category() {
+    const { categorys } = useContext(IndexContext)
     console.log(categorys)
-    console.log(postsOfCategory[0].id)
     return (
         <div className="category-list">
             <h2>カテゴリー</h2>
             <nav>
                 <ul>
-                    {categorys && categorys.map((category) => (
-                        // <Link href="/">
-                            <li key={category.id}>{category.name}</li>
-                        // </Link>
+                    {categorys && categorys.map((category, index) => (
+                        <li key={index}>
+                            <Link href={`/category/${category.id}`}>
+                                {category.name}
+                            </Link>
+                        </li>
                     ))}
                 </ul>
             </nav>
