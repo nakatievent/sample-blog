@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import Category from "./Category";
 
-export default function Aside({ categorys }) {
-    console.log(categorys)
+export default function Aside() {
+    console.log("Asideが再レンダリングされました")
     const router = useRouter()
     return (
         <aside>
@@ -15,7 +15,11 @@ export default function Aside({ categorys }) {
                     プロフィール詳細
                 </button>
             </div>
-            <Category categorys={categorys} />
+            {/* <form method="get" action="#" class="search_container">
+                <input type="text" size="25" placeholder="キーワード検索"></input>
+                <input type="submit"></input>
+            </form> */}
+            <Category />
         </aside>
     )
 }
