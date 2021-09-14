@@ -15,7 +15,6 @@ const Header = () => {
                     )}
                 </ul>
             </nav>
-            <input type="search"></input>
         </header>
     )
 }

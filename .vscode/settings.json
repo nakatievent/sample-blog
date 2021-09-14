@@ -4,10 +4,10 @@
 	"prettier.singleQuote": true,
 	"prettier.semi": true,
 	"prettier.bracketSpacing": false,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+
 	"prettier.jsxSingleQuote": true,
 	"prettier.useTabs": true,
 	"[scss]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
 	}
 }

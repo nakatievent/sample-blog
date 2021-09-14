@@ -4,7 +4,7 @@ import IndexContext from '../context/IndexContext'
 
 export default function Category() {
     const { categorys } = useContext(IndexContext)
-    console.log(categorys)
+    console.log("カテゴリーが再レンダリングされました")
     return (
         <div className="category-list">
             <h2>カテゴリー</h2>

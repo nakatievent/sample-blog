@@ -1,22 +1,20 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
+import { client } from "../../lib/client"
 import Layout from "../../components/Layout"
 import { getAllCategoryIds, getCategoryPostData } from "../../lib/category"
-import { client } from "../../lib/client"
 import Post from "../../components/Post"
 
 export default function Category({ post }) {
+    console.log("カテゴリーIDページが再レンダリングされました")
     const [posts, setPosts] = useState([])
     const router = useRouter()
-    console.log(post)
-    console.log(router.query.id)
     useEffect(() => {
         client.get({
             endpoint: 'posts',
             queries: { filters: `category[equals]${router.query.id}` },
         }).then((response) => setPosts(response.contents))
     }, [setPosts])
-    console.log(posts)
 
     if (router.isFallback || !post) {
         return (
@@ -52,11 +50,3 @@ export async function getStaticProps({ params }) {
         revalidate: 3 //ISRを有効にする
     }
 }
-
-export async function sample() {
-    const response = await client.get({
-        endpoint: 'posts',
-        queries: { filters: 'category[equals]react' },
-    })
-    return response
-};
