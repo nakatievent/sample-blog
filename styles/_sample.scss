@@ -11,5 +11,5 @@ $main-color: #ddd;
 }
 
 @mixin margin($top, $right, $bottom, $left) {
-    margin: $top, $right, $bottom, $left
+    margin: $top, $right, $bottom, $left;
 }
