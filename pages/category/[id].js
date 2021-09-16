@@ -24,11 +24,9 @@ export default function Category({ post }) {
 
     return (
         <Layout title="カテゴリー毎の投稿">
-            <div className="contents-wrapper">
-                <section>
-                    {posts.map((post, index) => <Post key={index} post={post} />)}
-                </section>
-            </div>
+            <section>
+                {posts.map((post, index) => <Post key={index} post={post} />)}
+            </section>
         </Layout>
     )
 }

@@ -1,16 +1,16 @@
 import Link from "next/link"
 import { useContext } from "react"
-import IndexContext from '../context/IndexContext'
+import LayoutContext from '../context/LayoutContext'
 
 export default function Category() {
-    const { categorys } = useContext(IndexContext)
+    const { categoryLists } = useContext(LayoutContext)
     console.log("カテゴリーが再レンダリングされました")
     return (
         <div className="category-list">
             <h2>カテゴリー</h2>
             <nav>
                 <ul>
-                    {categorys && categorys.map((category, index) => (
+                    {categoryLists && categoryLists.map((category, index) => (
                         <li key={index}>
                             <Link href={`/category/${category.id}`}>
                                 {category.name}

@@ -1,10 +1,13 @@
 import Link from "next/link"
+import Image from 'next/image'
 import { useRouter } from "next/router"
 import Layout from "../../components/Layout"
 import { getAllPostsIds, getPostData } from "../../lib/posts"
+import Post from "../../components/Post"
 
-export default function Post({ post }) {
+export default function article({ post }) {
     console.log(post)
+    const image = post.image
     const router = useRouter()
 
     if (router.isFallback || !post) {
@@ -15,17 +18,9 @@ export default function Post({ post }) {
 
     return (
         <Layout title={post.title}>
-            <p>
-                {"ID : "}
-                {post.id}
-            </p>
-            <p>{post.title}</p>
-            <p>{post.body}</p>
-            <Link href="/">
-                <div>
-                    <span>前のページへ戻る</span>
-                </div>
-            </Link>
+            <section>
+                <Post post={post} />
+            </section>
         </Layout>
     )
 }
